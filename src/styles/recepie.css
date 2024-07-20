@@ -1,0 +1,60 @@
+.recepieOa h2 {
+  margin-top: 2rem;
+  font-family: "Playfair Display SC";
+  text-align: center;
+  color: #241d18;
+  font-size: 3rem;
+}
+
+.recepieFlex {
+  display: flex;
+  margin: 3rem;
+  justify-content: space-evenly;
+}
+
+.recepieImage {
+  width: 600px;
+  height: 600px;
+  border-radius: 25px;
+}
+
+.recepieInstructionsTitle {
+  font-size: 2.5rem;
+  font-family: "Montserrat";
+}
+
+.InstructionsOa {
+  margin-left: 2em;
+}
+
+.Instructions {
+  margin-top: 1rem;
+  text-align: left;
+  max-width: 700px;
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+}
+
+.ingredientsList {
+  display: flex;
+  flex-wrap: wrap;
+  max-height: 300px;
+  overflow-y: auto;
+  gap: 1rem;
+}
+
+.ingredientsList dt,
+.ingredientsList dd {
+  width: 50%;
+  box-sizing: border-box;
+  padding: 2px 10px;
+  margin: 0;
+}
+
+.ingredientsList dt {
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.labelIngredients {
+  margin-bottom: 2rem;
+}

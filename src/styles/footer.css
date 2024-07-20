@@ -1,0 +1,31 @@
+.footerOa {
+  height: 200px;
+  width: 100%;
+  background-color: #241d18;
+  display: flex;
+  margin-top: 5rem;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  font-family: "Playfair Display SC";
+}
+.footerOa * {
+  color: white;
+}
+.title {
+  position: relative;
+  right: 0.8rem;
+  color: white;
+}
+.links li {
+  list-style-type: none;
+  display: inline-block;
+  margin-inline: 1rem;
+  color: #ffe3cf;
+  font-family: "Montserrat";
+}
+
+.rights {
+  text-transform: capitalize;
+  font-family: "Montserrat";
+}

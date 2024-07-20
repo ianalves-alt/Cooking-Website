@@ -1,0 +1,35 @@
+.categoriesTitle {
+  font-family: "Playfair Display SC";
+  color: #a88f00;
+  margin: 2rem;
+  font-size: 4rem;
+}
+.categorySubtitle {
+  font-family: "Montserrat";
+  max-width: 70%;
+  margin-inline: 2rem;
+  line-height: 1.5;
+}
+.filterByArea {
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Playfair Display SC";
+  letter-spacing: 4px;
+  color: #241d18;
+  margin: 3rem 0rem;
+}
+.Areas li {
+  font-family: "Montserrat";
+  display: inline-block;
+  margin: 1rem;
+}
+.Areas {
+  max-width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+.Areas li:hover {
+  transition: 0.3s ease-in-out;
+  letter-spacing: 5px;
+  cursor: pointer;
+}

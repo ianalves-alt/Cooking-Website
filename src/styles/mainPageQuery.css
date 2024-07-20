@@ -1,0 +1,13 @@
+@media (max-width: 1280px) {
+  .bodyTitle {
+  }
+  .image {
+    height: 110vh;
+  }
+}
+
+@media (max-width: 853px) {
+  .image {
+    height: 60vh;
+  }
+}

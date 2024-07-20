@@ -1,0 +1,14 @@
+.bodyTitle {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 5rem;
+  font-family: "Playfair Display SC";
+  letter-spacing: 3px;
+  color: #241d18;
+  margin-bottom: 3rem;
+}
+@media (max-width: 344px) {
+  .bodyTitle {
+    margin-top: 20rem;
+  }
+}

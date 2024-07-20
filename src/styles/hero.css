@@ -1,0 +1,78 @@
+.image {
+  background-image: url("../assets/wallpaperflare.com_wallpaper.jpg");
+  width: 100%;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.find {
+  font-family: "Playfair Display SC";
+  font-size: 7rem;
+  color: #a88f00;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: -1000;
+  text-transform: uppercase;
+  margin-left: 5rem;
+  padding-top: 6rem;
+}
+.subtitle {
+  margin-left: 5rem;
+  max-width: 650px;
+  font-family: "Montserrat";
+  line-height: 1.6;
+}
+.seeMore {
+  transition: 0.3s ease-in-out;
+  background-color: #766e00;
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  margin-top: 3rem;
+  margin-left: 5rem;
+  border-radius: 30px;
+  font-family: "Montserrat";
+}
+.seeMore:hover {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: black;
+  background: none;
+  border: 2px solid #766e00;
+}
+@media (max-width: 412px) {
+  .find {
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0;
+    color: #a88f00;
+  }
+  .seeMore {
+    margin: 0;
+    text-align: center;
+    margin-left: 7rem;
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 853px) {
+  .image {
+    height: 60vh;
+    .subtitle {
+      color: #a88f00;
+    }
+  }
+}
+@media (max-width: 344px) {
+  .seeMore {
+    margin: 0;
+    margin-left: 5rem;
+    margin-top: 2rem;
+  }
+}
