@@ -1,54 +1,55 @@
 * {
   text-decoration: none;
-}
-
-.cardInfoImage {
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in element’s total width and height */
 }
 
 .cardInfoOa {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  text-decoration: none;
-  color: #241d18;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Always two columns */
+  gap: 2rem; /* Increase space between cards */
+  padding: 1rem; /* Padding around the grid */
+  width: 100%; /* Full width of the container */
+  overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 .cardBox {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Horizontal layout: image on the left, text on the right */
   align-items: center;
-  margin: 1rem;
+  margin: 0; /* Remove margin since grid will handle spacing */
   border: 1px solid hsl(0, 0%, 80%);
   padding: 1rem;
-  border-radius: 30px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  border-radius: 20px; /* Slightly smaller radius for the card */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  width: 100%; /* Ensure the width fits the grid item */
+  max-width: 100%; /* Avoid overflow */
+  height: 300px; /* Set a fixed height for uniformity */
+  position: relative; /* For heart icon positioning */
 }
 
-.cardBoxLink {
-  width: calc(50% - 2rem); /* Match the width of cardBox */
-  display: block;
-  text-decoration: none;
-}
-
-.cardInfoTitle {
-  font-size: 2.5rem;
-  font-weight: 600;
+.cardInfoImage {
+  width: 35%; /* Adjust width for image */
+  height: 100%; /* Full height */
+  border-radius: 15px; /* Rounded corners for the image */
+  object-fit: cover; /* Ensure image covers the area without distortion */
 }
 
 .cardInfo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 65%; /* Take up remaining space */
+  padding: 1rem; /* Padding around text */
+  text-align: left; /* Left align text */
+  font-family: "Montserrat";
 }
 
-.cardInfo * {
-  margin-left: 1rem;
+.cardInfoTitle {
+  font-size: 2.5rem; /* Adjust font size */
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   font-family: "Montserrat";
+  font-weight: 700;
 }
 
 .cardInfoArea,
@@ -56,9 +57,15 @@
   color: hsl(0, 0%, 40%);
 }
 
+.cardBoxLink {
+  display: block;
+  width: 100%; /* Ensure link takes full width of card */
+  text-decoration: none;
+}
+
 .cardBox:hover {
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.03); /* Slightly smaller scale for smoother effect */
   transition: 0.3s ease-in-out;
   background-color: #a88f00;
   color: white;
@@ -69,85 +76,44 @@
 .cardBox:hover .cardInfoCategory {
   color: white;
 }
+
+.heartIconWrapper {
+  background: none;
+  border: none;
+  position: absolute; /* Position relative to the card */
+  top: 1rem; /* Adjust positioning as needed */
+  right: 1rem; /* Adjust positioning as needed */
+  cursor: pointer; /* Pointer cursor for the button */
+  z-index: 10; /* Ensure it is on top of other elements */
+}
+
+.likes {
+  font-size: 2rem; /* Adjust size to fit design */
+  color: #b23a2c; /* Adjust color if needed */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.likes:hover {
+  color: white; /* Color on hover */
+}
+
+/* Responsive adjustments */
 @media (max-width: 1024px) {
-  * {
-    text-decoration: none;
-  }
-
-  .cardInfoImage {
-    width: 300px;
-    height: 300px;
-    border-radius: 5px;
-  }
-
   .cardInfoOa {
-    flex-wrap: no-wrap;
-    justify-content: space-evenly;
-    text-decoration: none;
-    color: #241d18;
-  }
-
-  .cardBox {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem;
-    padding: 2rem;
-    border-radius: 30px;
-    box-sizing: border-box; /* Ensures padding and border are included in the width */
-  }
-
-  .cardBoxLink {
-    display: block;
-    text-decoration: none;
-  }
-
-  .cardInfoTitle {
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
-
-  .cardInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .cardInfo * {
-    margin-left: 1rem;
-    font-family: "Montserrat";
-  }
-
-  .cardInfoArea,
-  .cardInfoCategory {
-    color: hsl(0, 0%, 40%);
-  }
-
-  .cardBox:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: 0.3s ease-in-out;
-    background-color: #a88f00;
-    color: white;
-  }
-
-  .cardBox:hover .cardInfoTitle,
-  .cardBox:hover .cardInfoArea,
-  .cardBox:hover .cardInfoCategory {
-    color: white;
+    grid-template-columns: 1fr; /* Stack cards in a single column on smaller screens */
+    gap: 1.5rem; /* Adjust spacing for smaller screens */
   }
 }
+
 @media (max-width: 412px) {
-  .cardBoxLink {
-    width: auto;
+  .cardBox {
+    height: auto; /* Allow height to adjust based on content */
   }
 }
+
 @media (max-width: 344px) {
   .cardInfoImage {
-    width: 250px;
-    height: 250px;
-  }
-  .cardBoxLink {
-    width: 100%;
+    width: 100%; /* Ensure image takes full width on very small screens */
+    height: auto; /* Allow height to adjust */
   }
 }

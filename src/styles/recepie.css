@@ -58,3 +58,52 @@
 .labelIngredients {
   margin-bottom: 2rem;
 }
+.videoTitle {
+  margin-top: 2rem;
+  font-family: "Montserrat";
+  font-size: 1.5rem;
+}
+.foodInfo div {
+  display: inline-block;
+}
+.infoElement {
+  font-family: "Montserrat";
+  margin: 1rem;
+}
+.infoLink {
+  color: #7d6b01;
+}
+.sourcetitle {
+  font-size: 1.3rem;
+  font-family: "Montserrat";
+  margin: 1rem 0rem;
+  text-align: center;
+}
+.sourcelink {
+  margin-left: 6.5rem;
+  font-family: "Montserrat";
+  text-align: center;
+}
+.label {
+  margin-bottom: 4px;
+}
+.labelfor {
+  margin-left: 1rem;
+}
+.videoLink {
+  font-family: "Montserrat";
+}
+.likes {
+  font-size: 2rem; /* Adjust size to fit design */
+  color: #b23a2c; /* Adjust color if needed */
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.likes:hover {
+  color: black;
+}
+.likes {
+  position: relative;
+  display: block;
+  top: 4rem;
+}

@@ -1,5 +1,5 @@
 .categoriesTitle {
-  font-family: "Playfair Display SC";
+  font-family: "Montserrat";
   color: #a88f00;
   margin: 2rem;
   font-size: 4rem;
@@ -13,7 +13,7 @@
 .filterByArea {
   text-align: center;
   font-size: 3rem;
-  font-family: "Playfair Display SC";
+  font-family: "Montserrat";
   letter-spacing: 4px;
   color: #241d18;
   margin: 3rem 0rem;
@@ -32,4 +32,10 @@
   transition: 0.3s ease-in-out;
   letter-spacing: 5px;
   cursor: pointer;
+}
+.Areas li a {
+  color: #241d18;
+}
+.Areas li a:hover {
+  color: #a88f00;
 }

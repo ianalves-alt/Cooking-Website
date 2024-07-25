@@ -1,7 +1,7 @@
 import "@/styles/navbar.css";
 import Link from "next/link";
 
-import { FaSearch } from "react-icons/fa";
+import { FaHeart, FaRegHeart, FaSearch } from "react-icons/fa";
 import { TbClipboardList } from "react-icons/tb";
 export default function Navbar() {
   return (
@@ -19,15 +19,19 @@ export default function Navbar() {
               categories
             </Link>
           </div>
-          <div>lists</div>
+          <div>about</div>
           <div>recepies</div>
         </div>
         <div className="search">
           <button>
-            <FaSearch className="icon" />
+            <Link href="/search">
+              <FaSearch className="icon" />
+            </Link>{" "}
           </button>
           <button>
-            <TbClipboardList className="icon" />
+            <Link href="/likes">
+              <FaRegHeart style={{ color: "white", fontSize: "1.5rem" }} />
+            </Link>
           </button>
         </div>
       </nav>

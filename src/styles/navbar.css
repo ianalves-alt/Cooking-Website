@@ -36,6 +36,13 @@
   font-size: 1.5rem;
   color: white;
 }
+.classes *:hover {
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  letter-spacing: 3px;
+  color: #a88f00;
+}
+
 @media (max-width: 412px) {
   .icon {
     display: none;

@@ -11,18 +11,14 @@ import Navbar from "@/comp/navbar";
 export default function Page() {
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
+      <header></header>
       <div>
         <Hero />
       </div>
       <div>
         <MainBody />
       </div>
-      <div>
-        <Footer />
-      </div>
+      <div></div>
 
       <Inputbox />
     </>

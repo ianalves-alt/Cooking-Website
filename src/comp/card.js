@@ -3,10 +3,25 @@ import { useState, useEffect } from "react";
 import "@/styles/cards.css";
 import Link from "next/link";
 import "@/styles/mainPageQuery.css";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export default function Card() {
-  const [main, setMain] = useState([]);
+  const [likedItems, setLikedItems] = useState(new Set()); // Use a Set to track liked card IDs
 
+  const [main, setMain] = useState([]);
+  const [likeditemsarray, setlikeditemsarray] = useState(() => {
+    const data = window.localStorage.getItem("likeditemarray");
+    if (data) {
+      try {
+        // Parse JSON safely
+        return JSON.parse(data);
+      } catch (error) {
+        console.error("Error parsing localStorage data", error);
+        return [];
+      }
+    }
+    return []; // Default to an empty array if no data in local storage
+  });
   useEffect(() => {
     const fetchData = async () => {
       for (let i = 0; i < 10; i++) {
@@ -30,26 +45,63 @@ export default function Card() {
     fetchData();
   }, []);
 
+  const handleHeartClick = (e, id) => {
+    e.stopPropagation(); // Prevents click from bubbling up
+    e.preventDefault(); // Prevents default behavior
+    console.log("Heart icon clicked", id);
+
+    setLikedItems((prevLikedItems) => {
+      const newLikedItems = new Set(prevLikedItems);
+      if (newLikedItems.has(id)) {
+        newLikedItems.delete(id); // Remove from set if already liked
+      } else {
+        newLikedItems.add(id); // Add to set if not liked
+      }
+      return newLikedItems; // Return the updated Set
+    });
+    setlikeditemsarray((laa) => [...laa, id]);
+  };
+
+  useEffect(() => {
+    window.localStorage.setItem(
+      "likeditemarray",
+      JSON.stringify(likeditemsarray),
+    );
+  }, [likeditemsarray]);
+
   return (
     <>
       <div className="cardInfoOa">
-        {main.map((element, index) => (
-          <Link className="cardBoxLink" href={`/${element.id}`} key={index}>
-            <div className="cardBox">
-              <img
-                className="cardInfoImage"
-                src={element.image}
-                alt={element.title}
-              />
-              <div className="cardInfo">
-                <div className="cardInfoTitle">{element.title}</div>
-                <div className="cardInfoArea">Area: {element.area}</div>
-                <div className="cardInfoCategory">
-                  Category: {element.category}
+        {main.map((element) => (
+          <div className="cardBoxWrapper" key={element.id}>
+            <Link className="cardBoxLink" href={`/${element.id}`}>
+              <div className="cardBox">
+                <img
+                  className="cardInfoImage"
+                  src={element.image}
+                  alt={element.title}
+                />
+                <div className="cardInfo">
+                  <div className="cardInfoTitle">{element.title}</div>
+                  <div className="cardInfoArea">Area: {element.area}</div>
+                  <div className="cardInfoCategory">
+                    Category: {element.category}
+                  </div>
                 </div>
+                <button
+                  className="heartIconWrapper"
+                  onClick={(e) => handleHeartClick(e, element.id)}
+                  type="button"
+                >
+                  {likedItems.has(element.id) ? (
+                    <FaHeart className="likes" />
+                  ) : (
+                    <FaRegHeart className="likes" />
+                  )}
+                </button>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))}
       </div>
     </>
