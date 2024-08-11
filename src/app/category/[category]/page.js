@@ -1,48 +1,25 @@
-"use client";
+// src/app/category/[category]/page.js
 import Navbar from "@/comp/navbar";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import AreaMeals from "@/comp/AreaMeals"; // Import the new client component
+
+export async function generateStaticParams() {
+  const response = await fetch(
+    "https://www.themealdb.com/api/json/v1/1/categories.php", // Fetch a list of categories
+  );
+  const data = await response.json();
+
+  // Create an array of category slugs
+  return data.categories.map((category) => ({
+    category: category.strCategory.toLowerCase().replace(/\s+/g, "-"), // Create a slug for the category
+  }));
+}
 
 export default function Area({ params }) {
-  const [areaFoodInfo, setAreaFoodInfo] = useState([]);
-  useEffect(() => {
-    const fetchArea = async () => {
-      const req = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${params.category}`,
-      );
-
-      const response = await req.json();
-
-      setAreaFoodInfo(response.meals);
-    };
-    fetchArea();
-  }, [params.category]);
-  console.log(areaFoodInfo);
-  console.log(params.name);
   return (
     <>
       <h1 className="find categorytitle">{params.category} food</h1>
-      <div className="cardInfoOa">
-        {areaFoodInfo.map((element, i) => (
-          <Link
-            className="cardBoxLink"
-            href={`/${areaFoodInfo[i].idMeal}`}
-            key={i}
-          >
-            <div className="cardBox">
-              <Image
-                className="cardInfoImage"
-                src={areaFoodInfo[i].strMealThumb}
-                alt={areaFoodInfo[i].strMeal}
-              />
-              <div className="cardInfo">
-                <div className="cardInfoTitle">{areaFoodInfo[i].strMeal}</div>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <AreaMeals category={params.category} />{" "}
+      {/* Pass category to the client component */}
     </>
   );
 }
