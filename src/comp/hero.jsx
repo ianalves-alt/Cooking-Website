@@ -11,7 +11,7 @@ export default function Hero() {
         <p className="subtitle">
           Discover delicious, easy-to-follow recipes that will delight your
           taste buds and impress your guests. From quick weeknight dinners to
-          gourmet dishes, we've got you covered.
+          gourmet dishes, we got you covered.
         </p>
         <button className="seeMore">see more</button>
       </div>

@@ -1,8 +1,8 @@
 "use client";
 import Navbar from "@/comp/navbar";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
 export default function Area({ params }) {
   const [areaFoodInfo, setAreaFoodInfo] = useState([]);
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Area({ params }) {
       setAreaFoodInfo(response.meals);
     };
     fetchArea();
-  }, []);
+  }, [params.name]);
   console.log(areaFoodInfo);
   console.log(params.name);
   return (
@@ -30,7 +30,7 @@ export default function Area({ params }) {
             key={i}
           >
             <div className="cardBox">
-              <img
+              <Image
                 className="cardInfoImage"
                 src={areaFoodInfo[i].strMealThumb}
                 alt={areaFoodInfo[i].strMeal}

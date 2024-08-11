@@ -1,0 +1,84 @@
+* {
+  font-family: "Montserrat";
+}
+.insTitle {
+  text-align: center;
+  font-family: "Playfair Display SC";
+  font-size: 4rem;
+  margin-top: 2rem;
+}
+.insOa {
+  min-height: 100vh;
+}
+.carditem {
+  list-style-type: none;
+  display: inline;
+}
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  width: 200px;
+
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+.cardOa {
+  text-align: center;
+}
+.instructions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.1); /* Slightly smaller scale for smoother effect */
+  transition: 0.3s ease-in-out;
+  background-color: #4caf50;
+  color: white;
+}
+.fridgeLen {
+  display: inline;
+  font-size: 1rem;
+}
+.button {
+  margin: 10px;
+  border: none;
+  background: none;
+}
+.added {
+  color: #4caf50;
+  position: relative;
+  top: 0.5rem;
+}
+.searchInput {
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 40%;
+  outline: none;
+  font-size: 1.3rem;
+}
+.searchContainer {
+  text-align: center;
+  margin: 2rem 0rem;
+}
+.left {
+  position: relative;
+  right: 2rem;
+}
+.notFound {
+  font-size: 2rem;
+  position: absolute;
+  top: 27rem;
+  left: 37.5rem;
+}
+.back {
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: left;
+  color: #a33107;
+  margin-left: 1rem;
+}

@@ -1,0 +1,51 @@
+* {
+  font-family: "Montserrat";
+  list-style-type: none;
+  text-align: center;
+}
+.cardIngredient {
+}
+.cardOa {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); /* 9 equal columns */
+  grid-template-rows: repeat(
+    auto-fill,
+    minmax(100px, 1fr)
+  ); /* Auto-fill rows */
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Align items vertically */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.ingImage {
+  display: block;
+}
+.flexcard {
+  padding: 1rem;
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: space-between; /* Add space between the elements */
+  padding: 10px;
+  text-align: center;
+  flex-direction: column;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  height: 200px;
+}
+
+.deleteButton {
+  color: red;
+  border: none;
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  transition: 0.3s ease-in-out;
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+}

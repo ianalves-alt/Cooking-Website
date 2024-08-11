@@ -31,6 +31,7 @@
   background: none;
   border: none;
   margin: 0.7rem 1rem;
+  color: white;
 }
 .icon {
   font-size: 1.5rem;
@@ -59,4 +60,8 @@
   .title {
     text-align: center;
   }
+}
+
+.categories.active {
+  color: #b5a642;
 }

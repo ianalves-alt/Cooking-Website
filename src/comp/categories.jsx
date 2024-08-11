@@ -1,28 +1,37 @@
 import "@/styles/categories.css";
 import Link from "next/link";
+import Image from "next/image";
+import barcode from "../../public/editedBarcode.png";
 export default function Categories() {
   return (
     <>
-      <div>
-        <div>
-          <h1 className="categoriesTitle">Categories</h1>
+      <div className="container">
+        <div className="image2">
+          <div className="heroText">
+            <div className="uiImprovement">
+              Food <div>categories</div>
+            </div>
+            <div className="categories2">
+              <p className="foodtitle">Food title</p>
+              <h1 className="categoriesTitle">Categories</h1>
+              <p className="subtitleCategories">
+                The best categories you could ever ask for
+              </p>
+            </div>
+            <div className="barcode">
+              <div>choose</div>
+              <div>your</div>
+              <div>category</div>
+              <Image
+                width={184}
+                height={50}
+                alt="Picture of the author"
+                src={barcode}
+              />
+            </div>
+          </div>
         </div>
-        <div>
-          <p className="categorySubtitle">
-            The Category section is where you can dive into the world of
-            specific types of dishes, each with its own unique flair and appeal.
-            One beloved category is seafood, encompassing a variety of recipes
-            that highlight the bounty of the ocean. From succulent shrimp scampi
-            and savory clam chowder to exquisite sushi and grilled salmon,
-            seafood dishes offer an array of textures and flavors that can be
-            both delicate and bold. Rich in nutrients and versatile in
-            preparation, seafood can be grilled, steamed, baked, or fried,
-            making it a favorite for health-conscious individuals and gourmet
-            enthusiasts alike. Whether you're looking for a light and refreshing
-            ceviche or a hearty seafood paella, this category promises to bring
-            the taste of the sea to your table.
-          </p>
-        </div>
+
         <div>
           <div>
             <h1 className="filterByArea">Filter by area</h1>
@@ -117,53 +126,53 @@ export default function Categories() {
             </li>
           </ul>
         </div>
-      </div>
-      <div>
-        <h1 className="filterByArea">Filter by Category</h1>
-        <ul className="Areas">
-          <li>
-            <Link href="/category/Beef">Beef</Link>
-          </li>
-          <li>
-            <Link href="/category/Breakfast">Breakfast</Link>
-          </li>
-          <li>
-            <Link href="/category/Chicken">Chicken</Link>
-          </li>
-          <li>
-            <Link href="/category/Dessert">Dessert</Link>
-          </li>
-          <li>
-            <Link href="/category/Goat">Goat</Link>
-          </li>
-          <li>
-            <Link href="/category/Lamb">Lamb</Link>
-          </li>
-          <li>
-            <Link href="/category/Miscellaneous">Miscellaneous</Link>
-          </li>
-          <li>
-            <Link href="/category/Pasta">Pasta</Link>
-          </li>
-          <li>
-            <Link href="/category/Pork">Pork</Link>
-          </li>
-          <li>
-            <Link href="/category/Seafood">Seafood</Link>
-          </li>
-          <li>
-            <Link href="/category/Side">Side</Link>
-          </li>
-          <li>
-            <Link href="/category/Starter">Starter</Link>
-          </li>
-          <li>
-            <Link href="/category/Vegan">Vegan</Link>
-          </li>
-          <li>
-            <Link href="/category/Vegetarian">Vegetarian</Link>
-          </li>
-        </ul>
+        <div>
+          <h1 className="filterByArea">Filter by Category</h1>
+          <ul className="Areas">
+            <li>
+              <Link href="/category/Beef">Beef</Link>
+            </li>
+            <li>
+              <Link href="/category/Breakfast">Breakfast</Link>
+            </li>
+            <li>
+              <Link href="/category/Chicken">Chicken</Link>
+            </li>
+            <li>
+              <Link href="/category/Dessert">Dessert</Link>
+            </li>
+            <li>
+              <Link href="/category/Goat">Goat</Link>
+            </li>
+            <li>
+              <Link href="/category/Lamb">Lamb</Link>
+            </li>
+            <li>
+              <Link href="/category/Miscellaneous">Miscellaneous</Link>
+            </li>
+            <li>
+              <Link href="/category/Pasta">Pasta</Link>
+            </li>
+            <li>
+              <Link href="/category/Pork">Pork</Link>
+            </li>
+            <li>
+              <Link href="/category/Seafood">Seafood</Link>
+            </li>
+            <li>
+              <Link href="/category/Side">Side</Link>
+            </li>
+            <li>
+              <Link href="/category/Starter">Starter</Link>
+            </li>
+            <li>
+              <Link href="/category/Vegan">Vegan</Link>
+            </li>
+            <li>
+              <Link href="/category/Vegetarian">Vegetarian</Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </>
   );

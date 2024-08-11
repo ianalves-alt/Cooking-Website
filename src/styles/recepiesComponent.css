@@ -1,0 +1,61 @@
+* {
+  text-transform: capitalize;
+}
+.banner {
+  background-color: hsla(0, 0%, 0%, 0.4);
+  height: inherit;
+}
+.recepiesTitle {
+  color: #a88f00;
+  padding: 2rem;
+  font-size: 8rem;
+  text-align: center;
+  font-family: "Playfair Display SC", serif;
+  font-weight: 200;
+  color: white;
+  letter-spacing: 4px;
+  text-transform: capitalize;
+  letter-spacing: 14px;
+}
+.recepiesSubtitle {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: white;
+  position: relative;
+  bottom: 3.5rem;
+}
+.recepiesFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 80vh;
+}
+.recepiesUpTitle {
+  font-family: "Montserrat";
+  color: white;
+  position: relative;
+  top: 5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.containerRecepies {
+  background-image: url("../assets/wp11979490-fancy-food-wallpapers.jpg");
+  width: 100%;
+  height: 90vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 5rem;
+}
+.recepiesOa {
+  color: white;
+  font-family: "Playfair display SC";
+}
+.rand {
+  font-size: 4rem;
+  font-family: "Montserrat";
+  margin: 2rem;
+}

@@ -11,17 +11,19 @@ export default function Search() {
   const [main, setMain] = useState([]);
   const [noMealsFound, setNoMealsFound] = useState(false);
   const [likeditemsarray, setlikeditemsarray] = useState(() => {
-    const data = window.localStorage.getItem("likeditemarray");
-    if (data) {
-      try {
-        // Parse JSON safely
-        return JSON.parse(data);
-      } catch (error) {
-        console.error("Error parsing localStorage data", error);
-        return [];
+    if (typeof window !== "undefined") {
+      const data = window.localStorage.getItem("likeditemarray");
+      if (data) {
+        try {
+          // Parse JSON safely
+          return JSON.parse(data);
+        } catch (error) {
+          console.error("Error parsing localStorage data", error);
+          return [];
+        }
       }
+      return []; // Default to an empty array if no data in local storage
     }
-    return []; // Default to an empty array if no data in local storage
   });
 
   const fetchData = async () => {
@@ -138,7 +140,7 @@ export default function Search() {
           </div>
           {noMealsFound && (
             <p className="noMealsMessage">
-              No meals found for "{input}". Please try another search.
+              No meals found for &quot;{input}&quot;. Please try another search.
             </p>
           )}
         </div>

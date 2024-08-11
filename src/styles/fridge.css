@@ -1,0 +1,60 @@
+.fridgeOa {
+  min-height: 100vh;
+}
+.fridgeTitle {
+  font-family: "Playfair Display SC";
+  font-size: 4rem;
+  margin: 2rem;
+  letter-spacing: -1px;
+}
+.fridgeEmpty {
+  font-size: 2rem;
+  font-family: "Montserrat";
+  margin-left: 2rem;
+  position: relative;
+  bottom: 2rem;
+  position: relative;
+  top: 5.5rem;
+}
+.fridgeHas {
+  font-size: 2rem;
+  font-family: "Montserrat";
+  margin-left: 2rem;
+  position: relative;
+  bottom: 1rem;
+}
+.goToFridge {
+  transition: 0.3s ease-in-out;
+  background-color: #766e00;
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.3rem;
+  border-radius: 30px;
+  font-family: "Montserrat";
+  text-transform: capitalize;
+  text-align: center;
+  margin: 2rem;
+}
+.buttonFlex {
+  text-align: center;
+  margin-top: 1rem;
+}
+.goToFridge:hover {
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: black;
+  background: none;
+  border: 2px solid #766e00;
+}
+.goToFridge:hover .linkGoto {
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+.linkGoto {
+  color: white;
+  display: block;
+}
+.buttonsoa * {
+  display: inline-block;
+}

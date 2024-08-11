@@ -2,48 +2,42 @@
 import { useEffect, useState } from "react";
 import "@/styles/recepie.css";
 import Link from "next/link";
-
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 
 export default function Recepie({ id }) {
-  const [likedItems, setLikedItems] = useState(new Set()); // Use a Set to track liked card IDs
-  const [meal, setMeal] = useState(null);
-  const [likeditemsarray, setlikeditemsarray] = useState(() => {
-    const data = window.localStorage.getItem("likeditemarray");
-    if (data) {
-      try {
-        // Parse JSON safely
-        return JSON.parse(data);
-      } catch (error) {
-        console.error("Error parsing localStorage data", error);
-        return [];
-      }
+  // Initialize liked items from localStorage
+  const [likedItems, setLikedItems] = useState(() => {
+    if (typeof window !== "undefined") {
+      const data = window.localStorage.getItem("likedItems");
+      return data ? new Set(JSON.parse(data)) : new Set();
     }
-    return []; // Default to an empty array if no data in local storage
+    return new Set();
   });
+
+  const [meal, setMeal] = useState(null);
+
   const handleHeartClick = (e, id) => {
-    e.stopPropagation(); // Prevents click from bubbling up
-    e.preventDefault(); // Prevents default behavior
-    console.log("Heart icon clicked", id);
+    e.stopPropagation();
+    e.preventDefault();
 
     setLikedItems((prevLikedItems) => {
       const newLikedItems = new Set(prevLikedItems);
       if (newLikedItems.has(id)) {
-        newLikedItems.delete(id); // Remove from set if already liked
+        newLikedItems.delete(id);
       } else {
-        newLikedItems.add(id); // Add to set if not liked
+        newLikedItems.add(id);
       }
-      return newLikedItems; // Return the updated Set
+
+      // Update localStorage
+      window.localStorage.setItem(
+        "likedItems",
+        JSON.stringify(Array.from(newLikedItems)),
+      );
+
+      return newLikedItems;
     });
-    setlikeditemsarray((laa) => [...laa, id]);
   };
 
-  useEffect(() => {
-    window.localStorage.setItem(
-      "likeditemarray",
-      JSON.stringify(likeditemsarray),
-    );
-  }, [likeditemsarray]);
   useEffect(() => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
       .then((res) => res.json())
@@ -74,7 +68,8 @@ export default function Recepie({ id }) {
           ingredients,
           measurements,
         });
-      });
+      })
+      .catch((error) => console.error("Error fetching meal data:", error));
   }, [id]);
 
   if (!meal) return <div>Loading...</div>;
@@ -89,7 +84,14 @@ export default function Recepie({ id }) {
             <div className="foodInfo">
               <div className="infoElement">
                 <p className="label">Category: </p>
-                <p className="labelfor">{meal.category}</p>
+                <p className="labelfor">
+                  <Link
+                    className="infoLink"
+                    href={`/category/${meal.category}`}
+                  >
+                    {meal.category}
+                  </Link>
+                </p>
               </div>
               <div className="infoElement">
                 <p className="label">Area: </p>
@@ -136,7 +138,7 @@ export default function Recepie({ id }) {
               </dl>
             </div>
             <p className="Instructions">{meal.instructions}</p>
-            <p className="videoTitle">Here's a nice video to help you: </p>
+            <p className="videoTitle">Here is a nice video to help you: </p>
             <br />
             <a href={meal.video} className="videoLink">
               video on {meal.title}

@@ -1,0 +1,49 @@
+.generateOa * {
+  font-family: "Montserrat";
+}
+.generateOa h4 {
+  font-size: 2rem;
+}
+.generateOa {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-around;
+}
+.generateOa h3 {
+  font-size: 2rem;
+  letter-spacing: -10px;
+}
+.generateOa h2 {
+  letter-spacing: 4px;
+}
+.card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 500px;
+  border-radius: 30px;
+  transition: 0.3s ease-in-out;
+}
+.card h3,
+h2 {
+  color: #241d18;
+}
+.card img {
+  width: 300px;
+  height: 300px;
+  border-radius: 30px;
+}
+.card div {
+  padding: 1rem;
+}
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.03); /* Slightly smaller scale for smoother effect */
+  transition: 0.3s ease-in-out;
+  background-color: #a88f00;
+  color: white;
+}
+.card:hover h2,
+.card:hover h3 {
+  color: white;
+}
