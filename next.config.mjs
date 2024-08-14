@@ -2,11 +2,11 @@
 const nextConfig = {
   images: {
     domains: ["www.themealdb.com"],
+    unoptimized: true,
   },
-  output: "export", // Add your output configuration here
-  // other configurations
+  output: "export",
+  basePath: "/Cooking-Website", // Set the base path to match your GitHub repository name
+  assetPrefix: "/Cooking-Website/", // Prefix for static assets
 };
-
-// Export the config
 
 export default nextConfig;
