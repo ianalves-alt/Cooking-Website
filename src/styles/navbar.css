@@ -5,9 +5,10 @@
   background-color: #241d18;
   color: white;
   box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.5);
-  max-height: 70px;
+  min-height: 70px;
   padding-top: 0.1rem;
   color: white;
+  width: 100%;
 }
 .classes * {
   display: inline;
@@ -44,24 +45,146 @@
   color: #a88f00;
 }
 
+.categories.active {
+  color: #b5a642;
+}
+
+@media (max-width: 1301px) {
+  .likebutton {
+    display: inline;
+  }
+  .classes {
+    font-size: 1.1rem; /* Reduce font size for better fitting */
+    margin-right: 2rem; /* Adjust margin */
+  }
+}
+
+@media (max-width: 1025px) {
+  .navbar {
+    padding: 0.5rem; /* Reduce padding for better fit */
+  }
+
+  .title {
+    font-size: 2.2rem; /* Reduce title size */
+    margin-left: 1rem; /* Reduce left margin */
+  }
+
+  .classes {
+    margin-right: 2rem; /* Adjust right margin */
+    font-size: 1.1rem; /* Slightly reduce font size */
+  }
+
+  .search {
+    margin-top: 0.3rem; /* Reduce top margin */
+  }
+}
+@media (max-width: 767px) {
+  .navbar {
+    padding: 2rem;
+    max-height: none;
+  }
+  .title {
+    font-size: 2rem; /* Further reduce title size */
+    text-align: center;
+  }
+  .classes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Wrap links to the next line */
+  }
+  .classes div {
+    margin: 0.5rem; /* Adjust margins for better spacing */
+  }
+  .search {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+}
+
 @media (max-width: 412px) {
   .icon {
     display: none;
   }
   .navbar {
-    max-width: 100%;
-    display: block;
+    min-width: 100%;
     padding: 1rem;
     min-height: 120px;
   }
   .classes {
-    display: none;
+    display: none; /* Hide navigation items for very small screens */
   }
   .title {
+    font-size: 1.8rem; /* Further reduce title size */
     text-align: center;
   }
 }
 
-.categories.active {
-  color: #b5a642;
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .title {
+    font-size: 2rem; /* Reduce the title size further */
+    margin-left: 1rem;
+  }
+
+  .classes {
+    margin-right: 1rem; /* Adjust right margin */
+    font-size: 1rem; /* Slightly reduce font size */
+  }
+
+  .search {
+    margin-top: 0.3rem;
+  }
+
+  .image .find h1 {
+    font-size: 2.5rem; /* Adjust title size */
+  }
+}
+
+@media (max-width: 1174px) {
+  .likebutton {
+    position: absolute;
+    top: 1rem;
+  }
+}
+@media (max-width: 832px) {
+  .navbar {
+    display: block;
+    padding: 1rem;
+    max-height: none;
+  }
+
+  .title {
+    font-size: 1.8rem; /* Further reduce title size */
+    text-align: center;
+    margin-left: 0; /* Center the title */
+  }
+
+  .classes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .classes div {
+    margin: 0.3rem;
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.3rem;
+  }
+
+  .image .find h1 {
+    font-size: 2rem; /* Further adjust title size */
+    line-height: 1.2;
+  }
+  .likebutton {
+    position: static;
+  }
 }

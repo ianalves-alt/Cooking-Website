@@ -55,14 +55,6 @@ export default function Navbar() {
           <button className="likebutton">
             <Link href="/likes">
               <FaRegHeart style={{ color: "white", fontSize: "1.5rem" }} />
-              <div
-                style={{
-                  display: "inline-block",
-                  position: "relative",
-                  right: "1.5rem",
-                  bottom: "0.78rem",
-                }}
-              ></div>
             </Link>
           </button>
         </div>

@@ -4,7 +4,6 @@ const nextConfig = {
     domains: ["www.themealdb.com"],
     unoptimized: true,
   },
-  output: "export",
   basePath: "/Cooking-Website", // Set the base path to match your GitHub repository name
   assetPrefix: "/Cooking-Website/", // Prefix for static assets
 };

@@ -1,3 +1,4 @@
+// src/components/Card.js
 "use client";
 import { useState, useEffect } from "react";
 import "@/styles/cards.css";
@@ -7,64 +8,33 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import Image from "next/image";
 
 export default function Card() {
-  const [likedItems, setLikedItems] = useState(() => {
-    if (typeof window !== "undefined") {
-      const data = window.localStorage.getItem("likedItems");
-      return data ? new Set(JSON.parse(data)) : new Set();
-    }
-    return new Set();
-  });
-
+  const [likedItems, setLikedItems] = useState(new Set());
   const [messageVisibleFor, setMessageVisibleFor] = useState(null);
   const [main, setMain] = useState([]);
-  const [likeditemsarray, setlikeditemsarray] = useState(() => {
-    if (typeof window !== "undefined") {
-      const data = window.localStorage.getItem("likeditemarray");
-      if (data) {
-        try {
-          return JSON.parse(data);
-        } catch (error) {
-          console.error("Error parsing localStorage data", error);
-          return [];
-        }
-      }
-      return [];
-    }
-    return [];
-  });
+  const [likeditemsarray, setlikeditemsarray] = useState([]);
 
-  const [length, setLength] = useState(() => {
-    if (typeof window !== "undefined") {
-      const data = window.localStorage.getItem("likeditemarrayLength");
-      if (data) {
-        try {
-          return parseInt(data, 10); // Convert to number
-        } catch (error) {
-          console.error("Error parsing localStorage data", error);
-          return 0;
-        }
-      }
-      return 0;
-    }
-    return 0;
-  });
+  useEffect(() => {
+    const data = window.localStorage.getItem("likeditemarray");
+    setlikeditemsarray(data ? JSON.parse(data) : []);
+    const likedItemsSet = new Set(data ? JSON.parse(data) : []);
+    setLikedItems(likedItemsSet);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
-      const meals = [];
-      for (let i = 0; i < 10; i++) {
-        const res = await fetch(
-          "https://www.themealdb.com/api/json/v1/1/random.php",
-        );
-        const data = await res.json();
-        meals.push({
-          image: data.meals[0].strMealThumb,
-          title: data.meals[0].strMeal,
-          area: data.meals[0].strArea,
-          category: data.meals[0].strCategory,
-          id: data.meals[0].idMeal,
-        });
-      }
+      const meals = await Promise.all(
+        Array.from({ length: 10 }, () =>
+          fetch("https://www.themealdb.com/api/json/v1/1/random.php")
+            .then((res) => res.json())
+            .then((data) => ({
+              image: data.meals[0].strMealThumb,
+              title: data.meals[0].strMeal,
+              area: data.meals[0].strArea,
+              category: data.meals[0].strCategory,
+              id: data.meals[0].idMeal,
+            })),
+        ),
+      );
       setMain(meals);
     };
 
@@ -75,49 +45,30 @@ export default function Card() {
     e.stopPropagation();
     e.preventDefault();
 
-    setLikedItems((prevLikedItems) => {
-      const newLikedItems = new Set(prevLikedItems);
+    setLikedItems((prev) => {
+      const newLikedItems = new Set(prev);
       let newArray = [...likeditemsarray];
-      let messageText = "Added to Liked Recipes!";
 
       if (newLikedItems.has(id)) {
         newLikedItems.delete(id);
         newArray = newArray.filter((itemId) => itemId !== id);
-        messageText = "Removed recipe";
+        setMessageVisibleFor({ id, message: "Removed recipe" });
       } else {
         newLikedItems.add(id);
         newArray.push(id);
+        setMessageVisibleFor({ id, message: "Added to Liked Recipes!" });
       }
 
+      window.localStorage.setItem("likeditemarray", JSON.stringify(newArray));
       setlikeditemsarray(newArray);
-      setLength(newArray.length);
-
-      // Show message for specific card
-      setMessageVisibleFor({ id, message: messageText });
       setTimeout(() => setMessageVisibleFor(null), 3000);
 
       return newLikedItems;
     });
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem("likeditemarrayLength", length);
-    }
-  }, [length]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.localStorage.setItem(
-        "likeditemarray",
-        JSON.stringify(likeditemsarray),
-      );
-    }
-  }, [likeditemsarray]);
-
   return (
     <>
-      <p className="length"> {length}</p>
       <div className="cardInfoOa">
         {main.map((element, i) => (
           <div className="cardBoxWrapper" key={i}>
@@ -127,32 +78,28 @@ export default function Card() {
                   className="cardInfoImage"
                   src={element.image}
                   alt={element.title}
-                  width={500} // Set appropriate width and height
-                  height={300} // Adjust to maintain the aspect ratio
+                  width={500}
+                  height={300}
                 />
                 <div className="cardInfo">
                   <div className="cardInfoTitle">{element.title}</div>
                   <div className="cardInfoArea">
                     Area:{" "}
-                    <div className="category">
-                      <Link
-                        className="categoryLink"
-                        href={`/area/${element.area}`}
-                      >
-                        {element.area}
-                      </Link>
-                    </div>
+                    <Link
+                      className="categoryLink"
+                      href={`/area/${element.area}`}
+                    >
+                      {element.area}
+                    </Link>
                   </div>
                   <div className="cardInfoCategory">
                     Category:{" "}
-                    <div className="category">
-                      <Link
-                        className="categoryLink"
-                        href={`/category/${element.category}`}
-                      >
-                        {element.category}
-                      </Link>
-                    </div>
+                    <Link
+                      className="categoryLink"
+                      href={`/category/${element.category}`}
+                    >
+                      {element.category}
+                    </Link>
                   </div>
                 </div>
                 {messageVisibleFor?.id === element.id && (
