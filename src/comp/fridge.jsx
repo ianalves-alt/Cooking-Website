@@ -58,10 +58,10 @@ export default function FridgeComponent() {
               the most of the ingredients you already have at home. Simply input
               the items currently in your fridge, and our system will generate a
               list of recipes that you can prepare using those ingredients.
-              Whether you're trying to minimize waste, cook on a budget, or just
-              get creative with what you have, this feature is tailored to make
-              meal planning easy and efficient. No more last-minute grocery runs
-              or endless browsing for recipes—just quick and convenient
+              Whether you&apos;re trying to minimize waste, cook on a budget, or
+              just get creative with what you have, this feature is tailored to
+              make meal planning easy and efficient. No more last-minute grocery
+              runs or endless browsing for recipes—just quick and convenient
               solutions based on what you already have.
             </div>
             <div className="disclaimer">

@@ -23,7 +23,6 @@ export default function Categories() {
               <div>your</div>
               <div>category</div>
               <Image
-                className={barcodeimage}
                 width={184}
                 height={50}
                 alt="Picture of the author"
