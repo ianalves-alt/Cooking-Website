@@ -118,3 +118,52 @@
   letter-spacing: 1px;
   font-weight: 400;
 }
+@media (max-width: 1110px) {
+  .uiImprovement,
+  .barcode {
+    position: absolute;
+    top: 8rem;
+  }
+}
+@media (max-width: 650px) {
+  .categoriesTitle {
+    font-size: 6rem;
+  }
+  .foodtitle {
+    font-size: 0.6rem;
+    top: 4rem;
+  }
+  .subtitleCategories {
+    font-size: 0.6rem;
+  }
+}
+@media (max-width: 380px) {
+  .categories2 {
+    margin: 0;
+    position: relative;
+    bottom: 8rem;
+  }
+  .categoriesTitle {
+    font-size: 3.5rem;
+    padding: 3rem 0rem;
+  }
+
+  .uiImprovement,
+  .barcode {
+    font-size: 1rem;
+  }
+  .barcode {
+    position: absolute;
+    top: 27.2rem;
+    right: 1.5rem;
+  }
+  .rand {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 350px) {
+  .barcode,
+  .uiImprovement {
+    font-size: 0.7rem;
+  }
+}

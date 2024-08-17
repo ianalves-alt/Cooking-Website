@@ -1,4 +1,6 @@
 "use client";
+
+import { IoIosWarning } from "react-icons/io";
 import "@/styles/fridge.css";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -49,7 +51,25 @@ export default function FridgeComponent() {
     <>
       <div className="fridgeOa">
         <div>
-          <div className="fridgeTitle">Welcome to your fridge</div>
+          <div className="fridgeTitle">
+            Welcome to your fridge
+            <div className="subtitleFridge">
+              The fridge function on our website is designed to help you make
+              the most of the ingredients you already have at home. Simply input
+              the items currently in your fridge, and our system will generate a
+              list of recipes that you can prepare using those ingredients.
+              Whether you're trying to minimize waste, cook on a budget, or just
+              get creative with what you have, this feature is tailored to make
+              meal planning easy and efficient. No more last-minute grocery runs
+              or endless browsing for recipes—just quick and convenient
+              solutions based on what you already have.
+            </div>
+            <div className="disclaimer">
+              <IoIosWarning />
+              Warning: This feature is still in development and might be slow to
+              respond.
+            </div>
+          </div>
           <div>
             {condition ? (
               <p className="fridgeHas">

@@ -34,6 +34,11 @@ export default function Likes() {
             );
 
             const data = await res.json();
+
+            if (!data.meals || data.meals.length === 0) {
+              return null; // No meal found for this id
+            }
+
             const mealData = data.meals[0];
             const ingredients = [];
             const measurements = [];
@@ -47,19 +52,23 @@ export default function Likes() {
                 measurements.push(measure);
               }
             }
+
             return {
-              image: data.meals[0].strMealThumb,
-              title: data.meals[0].strMeal,
-              area: data.meals[0].strArea,
-              category: data.meals[0].strCategory,
-              id: data.meals[0].idMeal,
+              image: mealData.strMealThumb,
+              title: mealData.strMeal,
+              area: mealData.strArea,
+              category: mealData.strCategory,
+              id: mealData.idMeal,
               ingredients,
               measurements,
             };
           }),
         );
 
-        setFoodInfo(foodData);
+        // Filter out any null values
+        const filteredFoodData = foodData.filter((item) => item !== null);
+
+        setFoodInfo(filteredFoodData);
       };
 
       fetchData();

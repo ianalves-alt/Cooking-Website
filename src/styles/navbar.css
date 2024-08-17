@@ -2,41 +2,31 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center; /* Aligns items vertically in the center */
   background-color: #241d18;
   color: white;
   box-shadow: 5px 2px 5px rgba(0, 0, 0, 0.5);
-  min-height: 70px;
-  padding-top: 0.1rem;
-  color: white;
+  padding: 1rem; /* Increased padding for better spacing */
   width: 100%;
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.navbar .classes,
+.navbar .title,
+.navbar .search {
+  display: flex;
+  align-items: center; /* Vertical center alignment */
+}
+
+.classes {
+  display: flex;
+  gap: 1rem; /* Space between items */
+  font-family: "Montserrat", sans-serif;
 }
 .classes * {
-  display: inline;
-  font-size: 1.3rem;
-  margin-inline: 1rem;
   color: #ffe3cf;
-}
-.classes {
-  font-family: "Montserrat";
-  margin-top: 1.5rem;
-  margin-right: 6rem;
-}
-.title {
-  font-family: "Playfair Display SC";
-  font-size: 3rem;
-  margin-left: 2rem;
-  color: white;
-  text-decoration: none;
-}
-.search * {
-  background: none;
-  border: none;
-  margin: 0.7rem 1rem;
-  color: white;
-}
-.icon {
-  font-size: 1.5rem;
-  color: white;
+  transition: 0.3s ease-in-out;
+  margin-inline: 0.5rem;
 }
 .classes *:hover {
   transition: 0.3s ease-in-out;
@@ -44,147 +34,129 @@
   letter-spacing: 3px;
   color: #a88f00;
 }
-
-.categories.active {
-  color: #b5a642;
+.classes {
+  font-family: "Montserrat";
+  margin-top: 0.5rem;
+  margin-right: 6rem;
+  font-size: 1.3rem;
+  position: relative;
+  right: 2rem;
+}
+.title {
+  font-family: "Playfair Display SC", serif;
+  font-size: 2rem; /* Adjust title size */
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
 }
 
-@media (max-width: 1301px) {
-  .likebutton {
-    display: inline;
-  }
-  .classes {
-    font-size: 1.1rem; /* Reduce font size for better fitting */
-    margin-right: 2rem; /* Adjust margin */
-  }
+.search {
+  display: flex;
+  align-items: center;
 }
 
-@media (max-width: 1025px) {
+.icon {
+  font-size: 1.5rem;
+  color: white;
+}
+.search * {
+  background: none;
+  border: none;
+  margin-inline: 0.5rem;
+  position: relative;
+  top: 0.1rem;
+  color: white;
+}
+.icon {
+  font-size: 1.5rem;
+  color: white;
+}
+
+@media (max-width: 1122px) {
   .navbar {
-    padding: 0.5rem; /* Reduce padding for better fit */
+    flex-wrap: wrap; /* Allow elements to wrap to the next line */
   }
 
-  .title {
-    font-size: 2.2rem; /* Reduce title size */
-    margin-left: 1rem; /* Reduce left margin */
-  }
-
-  .classes {
-    margin-right: 2rem; /* Adjust right margin */
-    font-size: 1.1rem; /* Slightly reduce font size */
-  }
-
-  .search {
-    margin-top: 0.3rem; /* Reduce top margin */
-  }
-}
-@media (max-width: 767px) {
-  .navbar {
-    padding: 2rem;
-    max-height: none;
-  }
-  .title {
-    font-size: 2rem; /* Further reduce title size */
+  .navbar .title {
+    flex-basis: 100%; /* Full width on small screens */
     text-align: center;
+    margin-bottom: 0.5rem;
   }
-  .classes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Wrap links to the next line */
+
+  .navbar .classes {
+    justify-content: center; /* Center the navigation links */
+    margin: 0 auto; /* Adjust centering */
   }
-  .classes div {
-    margin: 0.5rem; /* Adjust margins for better spacing */
-  }
-  .search {
-    display: flex;
-    justify-content: center;
+
+  .navbar .search {
+    justify-content: flex-end; /* Align search to the right */
     margin-top: 0.5rem;
+    margin-left: 0; /* Remove left margin */
   }
 }
 
-@media (max-width: 412px) {
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  .navbar .title {
+    font-size: 1.5rem; /* Reduce title size */
+  }
+  .title {
+    padding-left: 1rem;
+  }
+
+  .navbar .classes {
+    font-size: 1rem; /* Reduce font size for links */
+  }
+}
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.2rem; /* Further reduce title size */
+    margin: 0 auto; /* Center the title */
+  }
+
+  .classes {
+    font-size: 1rem; /* Reduce font size */
+  }
+
   .icon {
-    display: none;
+    font-size: 1.2rem; /* Reduce icon size */
   }
-  .navbar {
-    min-width: 100%;
-    padding: 1rem;
-    min-height: 120px;
-  }
-  .classes {
-    display: none; /* Hide navigation items for very small screens */
-  }
-  .title {
-    font-size: 1.8rem; /* Further reduce title size */
-    text-align: center;
+  .navbar .classes {
+    flex-direction: column;
   }
 }
 
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 0.5rem;
+@media (max-width: 480px) {
+  .classes {
+    position: relative;
+    left: 0.2rem;
   }
 
   .title {
-    font-size: 2rem; /* Reduce the title size further */
-    margin-left: 1rem;
-  }
-
-  .classes {
-    margin-right: 1rem; /* Adjust right margin */
-    font-size: 1rem; /* Slightly reduce font size */
+    font-size: 1rem; /* Further reduce title size */
   }
 
   .search {
-    margin-top: 0.3rem;
-  }
-
-  .image .find h1 {
-    font-size: 2.5rem; /* Adjust title size */
-  }
-}
-
-@media (max-width: 1174px) {
-  .likebutton {
-    position: absolute;
-    top: 1rem;
+    flex: 1 100%;
+    justify-content: flex-end;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
   }
 }
-@media (max-width: 832px) {
-  .navbar {
-    display: block;
-    padding: 1rem;
-    max-height: none;
+@media (max-width: 330px) {
+  .navbar .classes {
+    flex-direction: row;
+    margin-inline: 0;
+    gap: 0;
   }
-
-  .title {
-    font-size: 1.8rem; /* Further reduce title size */
-    text-align: center;
-    margin-left: 0; /* Center the title */
-  }
-
-  .classes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-  }
-
-  .classes div {
-    margin: 0.3rem;
-  }
-
-  .search {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.3rem;
-  }
-
-  .image .find h1 {
-    font-size: 2rem; /* Further adjust title size */
-    line-height: 1.2;
-  }
-  .likebutton {
-    position: static;
+  .classes * {
+    font-size: 0.7rem;
+    margin-inline: 0.4rem;
   }
 }

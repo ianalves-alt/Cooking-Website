@@ -42,7 +42,7 @@
   background: none;
   border: 2px solid #766e00;
 }
-@media (max-width: 412px) {
+@media (max-width: 540px) {
   .find {
     font-size: 5rem;
     text-align: center;
@@ -74,5 +74,8 @@
     margin: 0;
     margin-left: 5rem;
     margin-top: 2rem;
+  }
+  .find {
+    font-size: 4rem;
   }
 }

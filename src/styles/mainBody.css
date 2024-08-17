@@ -9,6 +9,6 @@
 }
 @media (max-width: 344px) {
   .bodyTitle {
-    margin-top: 20rem;
+    font-size: 3rem;
   }
 }

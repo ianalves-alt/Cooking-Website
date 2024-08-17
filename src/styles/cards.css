@@ -1,57 +1,55 @@
 * {
   text-decoration: none;
-  box-sizing: border-box; /* Include padding and border in element’s total width and height */
+  box-sizing: border-box;
   text-align: inherit;
 }
 
 .cardInfoOa {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Always two columns */
-  gap: 2rem; /* Increase space between cards */
-  padding: 1rem; /* Padding around the grid */
-  width: 100%; /* Full width of the container */
-  overflow-x: hidden; /* Hide horizontal overflow */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .cardBox {
   display: flex;
-  flex-direction: row; /* Horizontal layout: image on the left, text on the right */
+  flex-direction: row;
   align-items: center;
-  margin: 0; /* Remove margin since grid will handle spacing */
+  margin: 0;
   border: 1px solid hsl(0, 0%, 80%);
   padding: 1rem;
-  border-radius: 20px; /* Slightly smaller radius for the card */
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
-  width: 100%; /* Ensure the width fits the grid item */
-  max-width: 100%; /* Avoid overflow */
-  height: 300px; /* Set a fixed height for uniformity */
-  position: relative; /* For heart icon positioning */
+  border-radius: 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
+  height: 300px;
+  position: relative;
   transition: 0.3s ease-in-out;
 }
 
 .cardInfoImage {
-  width: 35%; /* Adjust width for image */
-  height: 100%; /* Full height */
-  border-radius: 15px; /* Rounded corners for the image */
-  object-fit: cover; /* Ensure image covers the area without distortion */
+  width: 35%;
+  height: 100%;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
 .cardInfo {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 65%; /* Take up remaining space */
-  padding: 1rem; /* Padding around text */
-  text-align: left; /* Left align text */
+  width: 65%;
+  padding: 1rem;
+  text-align: left;
   font-family: "Montserrat";
 }
 
 .cardInfoTitle {
-  font-size: 2.5rem; /* Adjust font size */
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-family: "Montserrat";
+  font-size: 2.5rem;
   font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .cardInfoArea,
@@ -61,69 +59,122 @@
 
 .cardBoxLink {
   display: block;
-  width: 100%; /* Ensure link takes full width of card */
+  width: 100%;
   text-decoration: none;
 }
 
 .cardBox:hover {
   cursor: pointer;
-  transform: scale(1.03); /* Slightly smaller scale for smoother effect */
-  transition: 0.3s ease-in-out;
+  transform: scale(1.03);
   background-color: #a88f00;
-  color: white;
-}
-
-.message {
-  color: red;
-  font-family: "Montserrat";
-}
-.cardBox:hover .cardInfoTitle,
-.cardBox:hover .cardInfoArea,
-.cardBox:hover .cardInfoCategory,
-.cardBox:hover .categoryLink {
   color: white;
 }
 
 .heartIconWrapper {
   background: none;
   border: none;
-  position: absolute; /* Position relative to the card */
-  top: 1rem; /* Adjust positioning as needed */
-  right: 1rem; /* Adjust positioning as needed */
-  cursor: pointer; /* Pointer cursor for the button */
-  z-index: 10; /* Ensure it is on top of other elements */
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
 .likes {
-  font-size: 2rem; /* Adjust size to fit design */
-  color: #b23a2c; /* Adjust color if needed */
-  transition: color 0.3s ease; /* Smooth transition for color change */
+  font-size: 2rem;
+  color: #b23a2c;
+  transition: color 0.3s ease;
 }
 
 .likes:hover {
-  color: white; /* Color on hover */
+  color: white;
 }
 
-/* Responsive adjustments */
+.message {
+  color: red;
+  font-family: "Montserrat";
+  opacity: 0;
+  position: absolute;
+  top: 1rem;
+  right: 3.5rem;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.message.show {
+  animation: fadeInOut 3s forwards;
+}
+
+.length {
+  position: absolute;
+  color: white;
+  font-size: 1rem;
+  right: 4rem;
+  top: 1rem;
+}
+
+.category {
+  display: inline;
+}
+
+.category:hover {
+  text-decoration: underline;
+}
+
+.categoryLink {
+  color: hsl(0, 0%, 40%);
+}
+
+.categoryLink:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1024px) {
   .cardInfoOa {
-    grid-template-columns: 1fr; /* Stack cards in a single column on smaller screens */
-    gap: 1.5rem; /* Adjust spacing for smaller screens */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 412px) {
   .cardBox {
-    height: auto; /* Allow height to adjust based on content */
+    height: auto;
   }
 }
 
-@media (max-width: 344px) {
+@media (max-width: 400px) {
+  .cardBox {
+    flex-direction: column;
+    height: auto;
+    padding: 0.5rem;
+  }
+
   .cardInfoImage {
-    width: 100%; /* Ensure image takes full width on very small screens */
-    height: auto; /* Allow height to adjust */
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0.5rem;
+  }
+
+  .cardInfo {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  .cardInfoTitle {
+    font-size: 1.5rem;
+  }
+
+  .heartIconWrapper {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .message {
+    top: 0.5rem;
+    right: 2rem;
+    font-size: 0.8rem;
   }
 }
+
 @keyframes fadeInOut {
   0%,
   100% {
@@ -133,38 +184,4 @@
   90% {
     opacity: 1;
   }
-}
-
-.message {
-  color: red;
-  font-family: "Montserrat";
-  opacity: 0; /* Start with hidden message */
-  position: absolute;
-  top: 1rem;
-  right: 3.5rem; /* Position it to the left of the heart */
-  transition: opacity 0.3s ease-in-out;
-}
-
-.message.show {
-  animation: fadeInOut 3s forwards;
-}
-.length {
-  position: absolute;
-  color: white;
-  font-size: 1rem;
-  right: 4rem;
-  top: 1rem;
-}
-.category {
-  display: inline;
-}
-.category:hover {
-  text-decoration: underline;
-}
-
-.categoryLink {
-  color: hsl(0, 0%, 40%);
-}
-.categoryLink:hover {
-  text-decoration: undeline;
 }

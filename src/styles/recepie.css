@@ -110,3 +110,249 @@
   display: block;
   top: 4rem;
 }
+
+/* Base styles (default for larger screens, > 1150px) */
+
+/* Media query for screens smaller than 1150px */
+@media (max-width: 1106px) {
+  .recepieOa h2 {
+    font-size: 2.5rem;
+  }
+
+  .recepieFlex {
+    margin: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recepieImage {
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .recepieInstructionsTitle {
+    font-size: 2.2rem;
+  }
+
+  .Instructions {
+    font-size: 1.1rem;
+  }
+  .ingredientsList {
+    max-height: 250px;
+  }
+  .likes {
+    top: 7rem;
+  }
+}
+
+/* Media query for screens smaller than 950px */
+@media (max-width: 950px) {
+  .recepieOa h2 {
+    font-size: 2.2rem;
+  }
+
+  .recepieFlex {
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+  }
+
+  .recepieImage {
+    width: 450px;
+    height: 450px;
+  }
+
+  .InstructionsOa {
+    margin-left: 0;
+    margin-top: 2rem;
+  }
+
+  .recepieInstructionsTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .Instructions {
+    font-size: 1rem;
+  }
+
+  .ingredientsList {
+    max-height: 200px;
+  }
+}
+
+/* Media query for screens smaller than 750px */
+@media (max-width: 750px) {
+  .recepieOa h2 {
+    font-size: 2rem;
+  }
+
+  .recepieFlex {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .recepieImage {
+    width: 400px;
+    height: 400px;
+  }
+
+  .Instructions {
+    font-size: 0.9rem;
+  }
+
+  .ingredientsList {
+    max-height: 150px;
+  }
+  .likes {
+    top: 11.5rem;
+  }
+}
+
+/* Media query for screens smaller than 550px */
+@media (max-width: 550px) {
+  .recepieOa h2 {
+    font-size: 1.8rem;
+  }
+
+  .recepieFlex {
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .recepieImage {
+    width: 350px;
+    height: 350px;
+  }
+
+  .recepieInstructionsTitle {
+    font-size: 1.8rem;
+  }
+
+  .Instructions {
+    font-size: 0.85rem;
+  }
+
+  .ingredientsList {
+    max-height: 120px;
+  }
+  .likes {
+    top: 18.5rem;
+  }
+}
+
+/* Media query for screens smaller than 400px */
+@media (max-width: 400px) {
+  .recepieOa h2 {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .recepieFlex {
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+  }
+
+  .recepieImage {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    border-radius: 15px;
+  }
+
+  .InstructionsOa {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .recepieInstructionsTitle {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .Instructions {
+    font-size: 0.8rem;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .ingredientsList {
+    gap: 0.5rem;
+    max-height: none;
+  }
+
+  .videoTitle {
+    font-size: 1.2rem;
+  }
+
+  .sourcetitle,
+  .sourcelink {
+    margin-left: 0;
+    font-size: 1rem;
+  }
+
+  .likes {
+    font-size: 1.5rem;
+    top: 5rem;
+  }
+}
+
+/* Media query for screens smaller than 330px */
+@media (max-width: 330px) {
+  .recepieOa h2 {
+    font-size: 1.3rem;
+  }
+
+  .recepieFlex {
+    flex-direction: column;
+    align-items: center;
+    margin: 0.3rem;
+  }
+
+  .recepieImage {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+    border-radius: 10px;
+  }
+
+  .InstructionsOa {
+    margin-top: 0.5rem;
+  }
+
+  .recepieInstructionsTitle {
+    font-size: 1.3rem;
+  }
+
+  .Instructions {
+    font-size: 0.7rem;
+  }
+
+  .ingredientsList {
+    gap: 0.3rem;
+  }
+
+  .videoTitle {
+    font-size: 1rem;
+  }
+
+  .sourcetitle,
+  .sourcelink {
+    font-size: 0.9rem;
+  }
+  .sourcelink,
+  .videoLink {
+    font-size: 0.7rem;
+    max-width: 300px;
+  }
+
+  .likes {
+    font-size: 1.3rem;
+    top: 7rem;
+  }
+}
