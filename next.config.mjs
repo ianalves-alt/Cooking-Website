@@ -6,6 +6,7 @@ const nextConfig = {
   },
   basePath: "/Cooking-Website", // Set the base path to match your GitHub repository name
   assetPrefix: "/Cooking-Website/", // Prefix for static assets
+  output: "export",
 };
 
 export default nextConfig;
