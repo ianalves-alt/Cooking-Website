@@ -72,7 +72,10 @@ export default function Card() {
       <div className="cardInfoOa">
         {main.map((element, i) => (
           <div className="cardBoxWrapper" key={i}>
-            <Link className="cardBoxLink" href={`/${element.id}`}>
+            <Link
+              className="cardBoxLink"
+              href={`/Cooking-Website/${element.id}`}
+            >
               <div className="cardBox">
                 <Image
                   className="cardInfoImage"
