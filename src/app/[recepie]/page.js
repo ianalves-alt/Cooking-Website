@@ -40,20 +40,34 @@ export async function generateStaticParams() {
 const RecepiePage = async ({ params }) => {
   const id = params.recepie;
 
-  const response = await fetch(
-    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`,
+    );
 
-  if (!data.meals || data.meals.length === 0) {
-    return <div>Recipe not found.</div>;
+    // Handle non-200 responses
+    if (!response.ok) {
+      console.error(`API returned an error: ${response.statusText}`);
+      return <div>Failed to load recipe. Please try again later.</div>;
+    }
+
+    const data = await response.json();
+
+    // Handle invalid JSON response
+    if (!data || !data.meals || data.meals.length === 0) {
+      console.error("Invalid JSON received:", data);
+      return <div>Recipe not found.</div>;
+    }
+
+    return (
+      <>
+        <Recepie id={data.meals[0].idMeal} />
+      </>
+    );
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+    return <div>Error loading the recipe. Please try again later.</div>;
   }
-
-  return (
-    <>
-      <Recepie id={data.meals[0].idMeal} />
-    </>
-  );
 };
 
 export default RecepiePage;
