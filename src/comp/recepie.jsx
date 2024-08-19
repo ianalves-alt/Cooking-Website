@@ -137,7 +137,10 @@ export default function Recepie({ id }) {
                 ))}
               </dl>
             </div>
-            <p className="Instructions">{meal.instructions}</p>
+            <div className="Instructions">
+              <div className="instructionsTitle">Instructions</div>
+              {meal.instructions}
+            </div>
             <p className="videoTitle">Here is a nice video to help you: </p>
             <br />
             <a href={meal.video} className="videoLink">

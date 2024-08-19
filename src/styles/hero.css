@@ -69,6 +69,15 @@
     }
   }
 }
+@media (max-width: 480px) {
+  .find {
+    padding-top: 2rem;
+  }
+  .image {
+    background-image: url("../../public/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
+    min-height: 150vh;
+  }
+}
 @media (max-width: 344px) {
   .seeMore {
     margin: 0;
