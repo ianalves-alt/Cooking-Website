@@ -148,15 +148,14 @@
     right: 0;
     left: 0;
   }
-}
-@media (max-width: 330px) {
   .navbar .classes {
     flex-direction: row;
-    margin-inline: 0;
-    gap: 0;
+    margin-inline: 0rem;
+    gap: 0rem;
   }
   .classes * {
     font-size: 0.7rem;
-    margin-inline: 0.4rem;
   }
+}
+@media (max-width: 330px) {
 }
