@@ -64,18 +64,36 @@
 @media (max-width: 853px) {
   .image {
     height: 60vh;
-    .subtitle {
-      color: #a88f00;
-    }
+  }
+  .subtitle {
+    color: #a88f00;
   }
 }
 @media (max-width: 480px) {
   .find {
     padding-top: 2rem;
+    color: #fcd674;
+  }
+  .find span {
+    display: none;
+  }
+  .subtitle {
+    color: #fcd674;
   }
   .image {
     background-image: url("../../public/monika-grabkowska-P1aohbiT-EY-unsplash.jpg");
-    min-height: 150vh;
+    min-height: 130vh;
+  }
+  .c {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent white overlay */
+    text-align: left;
+    font-size: 1.5em;
+    color: #333; /* Dark grey text color */
+    height: 130vh;
+  }
+  .seeMore {
+    background-color: #fcd674;
+    color: #241d18;
   }
 }
 @media (max-width: 344px) {

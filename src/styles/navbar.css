@@ -132,7 +132,8 @@
 @media (max-width: 480px) {
   .classes {
     position: relative;
-    left: 0.2rem;
+    left: 1.5rem;
+    bottom: 0.3rem;
   }
 
   .title {
@@ -142,11 +143,9 @@
   .search {
     flex: 1 100%;
     justify-content: flex-end;
-    position: relative;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
   }
   .navbar .classes {
     flex-direction: row;
@@ -156,6 +155,4 @@
   .classes * {
     font-size: 0.7rem;
   }
-}
-@media (max-width: 330px) {
 }
